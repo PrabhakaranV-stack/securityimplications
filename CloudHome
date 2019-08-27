@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Public Cloud</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<style type="text/css">
+body,td,th {
+	font-family: "Book Antiqua";
+	font-size: 16px;
+}
+</style>
+</head>
+<body>
+<div id="wrapper">
+<%
+ String message=request.getParameter("msg");
+         if(message!=null && message.equalsIgnoreCase("sucess"))
+	
+             {
+				  out.println("<script>alert('Login Successfully..!')</script>");
+            }    %>
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+			  <div id="content">
+					<div class="post">
+					  <h2 align="center" class="title"><a href="#"><a href="#">SECURITY IMPLICATION OF PERMISSION USING ACCESS CONTROL SCHEME</a></h2>
+					  <p align="center">&nbsp;</p>
+					
+                      <div class="entry">
+<!--                       <span class="date"><b><a href="#">OUR CONCRETE RESOURCE ELASTICITY </a><a href="#">PROTOCOL:</a></b></span>
+                       <br />
+                       <br />
+                      
+					    <p align="justify">AutoElastic was modeled with the following requirements and design decisions in mind: (i) users do not need to configure 
+					      the elasticity mechanism; however, programmers can 
+					      inform an SLA (Service Level Agreement) with the 
+					      minimum and maximum number of VMs to run the 
+					      application; (ii) programmers do not need to rewrite 
+				        their application to profit from the cloud elasticity;</p>-->
+<p align="center">
+<!--  <img src="images/Capture1.PNG" width="507" height="301"/>
+</p>
+<p align="justify">(iii) the investigated scenario concerns a non-shared environment and the execution of a single application; 
+  (iv) AutoElastic offers a reactive, automatic and horizontal elasticity, following the replication strategy to enable it; (v) because it is a PaaS-based framework, AutoElastic comprises tools for transforming a parallel application to an elastic application transparently to users; and (vi) AutoElastic analyses the load peaks and sudden drops for not launching unnecessary actions, avoiding a phenomenon known as thrashing.</p>
+                   
+                        -->
+                        
+                        
+                        </p>
+						<p align="justify" class="links">&nbsp;</p>
+					  </div>
+			    </div>
+				</div>
+				<div align="justify">
+				  <!-- end #content -->
+			  </div>
+			  <div id="sidebar">
+					<div id="logo">
+						<h1 align="justify"><a href="#">Cloud Home </a></h1>
+						<p align="justify"> <a href="http://www.freecsstemplates.org/"></a></p>
+					</div>
+			    <div id="menu">
+						<div align="justify">
+						  <ul>
+						    <li class="current_page_item"><a href="pcshome.jsp">Home</a></li>
+						    <li><a href="pcsfileview.jsp">View all Cloud Files</a></li>
+						    <li><a href="TransCloud.jsp">View all Transaction</a></li>
+						    <li><a href="fileatt.jsp">View all Attacks</a></li>
+						    <li><a href="Viewres.jsp">View Key authority response</a></li>
+						    <li><a href="Home.jsp">Logout</a></li>
+					      </ul>
+				  </div>
+			    </div>
+				  <div align="justify">
+				    <ul>
+				      <li> </li>
+			        </ul>
+			    </div>
+				  <ul>
+				    <li>
+				      <div style="clear: both;">&nbsp;</div>
+					  </li>
+					  <li>					  </li>
+					  <li>
+<!--					    <h2 align="justify">Working:</h2>
+					    <p align="justify">CLOUD COMPUTING is a kind of internet based computing that provides shared processing resources and data to computers and other devices on demand. It is a model for enabling ubiquitous , on demand access to shared pool of configurable computing resources which can be rapidly provisioned and released with minimal management effort In this context, this work presents AUTOELASTIC, a PaaS-level elasticity model for HPC in the cloud. </p>-->
+				    </li>
+                      <li>
+                        <h2 align="justify"></h2>
+                      </li>
+                      <li>
+                        <h2 align="justify">&nbsp;</h2>
+                      </li>
+					  <li>
+						  <h2 align="justify"><!-- end #sidebar -->				</h2>
+					  </li>
+				</ul>
+				</div>
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p>.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
