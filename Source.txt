@@ -1,0 +1,316 @@
+//CLIENT REGISTER:
+<%@page import="com.oreilly.servlet.*,java.sql.*,java.lang.*,databaseconnection.*,java.text.SimpleDateFormat,java.util.*,java.io.*,javax.servlet.*, javax.servlet.http.*"  errorPage="Error.jsp"%>
+<%@ page import="java.sql.*,databaseconnection.*"%>
+<%
+ try
+ {
+          //int n=(Integer)(session.getAttribute( "id" ));
+          String id = request.getParameter("id");
+           String user = request.getParameter("user");
+            String pass = request.getParameter("pass");
+            String gender = request.getParameter("gender");
+            String dob = request.getParameter("date");
+            String mail = request.getParameter("mail");
+            String location = request.getParameter("location");
+            String contactno = request.getParameter("contactno");
+            session.setAttribute("user", user);
+            //session.setAttribute("mail", mail);
+            Connection con=databasecon.getconnection();
+        Statement st=con.createStatement();
+        
+            int i = st.executeUpdate("insert into client (id,user,pass,gender,dob,mail,location,contactno,status)values('"+id+"','"+user+"','"+pass+"','"+gender+"','"+dob+"','"+mail+"','"+location+"','"+contactno+"','Waiting')");
+            if(i!=0){
+                response.sendRedirect("Client.jsp?message=Success");
+                               }
+                       else{
+                  response.sendRedirect("Client.jsp?message=error");
+                       }
+             con.close();
+        st.close();
+        }
+        catch(Exception e)
+                {
+        out.println(e);
+               }
+%>
+//CLIENT LOGIN
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%
+    String username = request.getParameter("user");
+    String password = request.getParameter("pass");
+    String stat = "Authorized";
+    //System.out.println(" user name" + username);
+    //System.out.println(" user password" + password);
+    Class.forName("com.mysql.jdbc.Driver");
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/integrity", "root", "root");
+    Statement st = con.createStatement();
+    String Q = "select * from client where user= '" + username + "' and pass='" + password + "' ";
+    ResultSet rs = st.executeQuery(Q);
+    if (rs.next()) {
+        if ((rs.getString("user").equals(username)) && (rs.getString("status").equals(stat))) 
+        {
+            session.setAttribute("me", username);
+            response.sendRedirect("ClientHome.jsp?msg=success");
+
+        } else {
+            response.sendRedirect("Client.jsp?msg=NotActivated");
+        }
+    } else {
+        response.sendRedirect("Client.jsp?msg=error");
+    }
+%>
+//PROXY
+<%
+String username = request.getParameter("username");
+String password = request.getParameter("password");    
+ if(((username).equalsIgnoreCase("proxy"))&&((password).equalsIgnoreCase("proxy"))){
+     response.sendRedirect("proxyhome.jsp?msg=sucess");
+ }
+else{
+ out.println("Error Found..!!");
+ }
+%>
+//UPLOAD
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@ page import="java.sql.*" import="databaseconnection.*"%>
+<%
+         String me =session.getAttribute("me").toString();
+            String fm =session.getAttribute("nn").toString();
+            //String user = request.getParameter("user");
+             
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/integrity", "root", "root");
+            Statement st = con.createStatement();
+            int i = st.executeUpdate("update files set user='" + me + "' where name='" + fm + "'");
+			int j = st.executeUpdate("update transaction set user='" + me + "' where filename='" + fm + "'");
+            if (i != 0) {
+               response.sendRedirect("Uploads.jsp?msgfns=Register success");  
+            } else {
+               response.sendRedirect("Uploads.jsp?msgfnf=Register fails");
+            }
+            %>
+//CHECK INTEGRITY
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%
+    String filename = request.getParameter("file");
+	System.out.println(" filename" + filename);
+	 session.setAttribute("filename", filename);
+	String me =session.getAttribute("me").toString();
+    //String password = request.getParameter("pass");   String stat = "attack";
+ String stat1 = "Key Mismatch";
+    Class.forName("com.mysql.jdbc.Driver");
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/integrity", "root", "root");
+    Statement st = con.createStatement();
+    String Q = "select * from attack where filename= '" + filename + "'";
+    ResultSet rs = st.executeQuery(Q);
+   if (rs.next()) {
+if ((rs.getString("filename").equals(filename)) && (rs.getString("status").equals(stat))) 
+        {
+         session.setAttribute("filename", filename);            
+         response.sendRedirect("Recover.jsp?msg=NotSecure");
+      } else {
+    response.sendRedirect("ClientHome.jsp?msg=secure");
+       }
+	}
+    else
+                    {
+                        response.sendRedirect("ClientHome.jsp?msg=secure");
+                        }
+%>
+//END USER LOGIN
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%
+    String username = request.getParameter("user");
+    String password = request.getParameter("pass");
+    String stat = "Authorized";
+    //System.out.println(" user name" + username);
+    //System.out.println(" user password" + password);
+    Class.forName("com.mysql.jdbc.Driver");
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/integrity", "root", "root");
+    Statement st = con.createStatement();
+    String Q = "select * from enduser where user= '" + username + "' and pass='" + password + "' ";
+   ResultSet rs = st.executeQuery(Q);
+
+    if (rs.next()) {
+        if ((rs.getString("user").equals(username)))// && (rs.getString("status").equals(stat))) 
+        {
+            session.setAttribute("me", username);
+            response.sendRedirect("EndUserHome.jsp?msg=Login");
+
+        } else {
+            response.sendRedirect("EndUSer.jsp?msgrr= User Not Activated..!");
+        }
+    } else {
+        response.sendRedirect("EndUSer.jsp?msg=error");
+    }
+%>
+//END USER REGISTER
+<%@page import="com.oreilly.servlet.*,java.sql.*,java.lang.*,databaseconnection.*,java.text.SimpleDateFormat,java.util.*,java.io.*,javax.servlet.*, javax.servlet.http.*"  errorPage="Error.jsp"%>
+<%@ page import="java.sql.*,databaseconnection.*"%>
+<%
+ try
+ {
+          //int n=(Integer)(session.getAttribute( "id" ));
+          String id = request.getParameter("id");
+           String user = request.getParameter("user");
+            String pass = request.getParameter("pass");
+            String gender = request.getParameter("gender");
+            String dob = request.getParameter("date");
+            String mail = request.getParameter("mail");
+            String location = request.getParameter("location");
+            String contactno = request.getParameter("contactno"); 
+ 
+            session.setAttribute("user", user);
+            //session.setAttribute("mail", mail);
+            Connection con=databasecon.getconnection();
+        Statement st=con.createStatement();
+         Int i = st.executeUpdate("insert into enduser (id,user,pass,gender,dob,mail,location,contactno)values('"+id+"','"+user+"','"+pass+"','"+gender+"','"+dob+"','"+mail+"','"+location+"','"+contactno+"')");
+            if(i!=0){
+          response.sendRedirect("EndUSer.jsp?message=Success");
+                               }
+                       else{
+            response.sendRedirect("EndUser.jsp?message=error");
+                       }   con.close();
+        st.close();
+        }
+        catch(Exception e)
+                {
+        out.println(e);
+               }
+%>
+//FILE REQUEST
+<%@ page import="java.text.ParseException.*"%>
+<%@ page import="java.text.SimpleDateFormat,java.util.*,java.io.*,javax.servlet.*, javax.servlet.http.*" %>
+<%@ page import ="java.util.Date,java.text.SimpleDateFormat,java.text.ParseException"%>
+<%@ page import="java.sql.*,databaseconnection.*"%>
+ 
+<%
+	Statement st = null;
+	ResultSet rs1=null;
+	int n=0;
+	try{
+	Class.forName("com.mysql.jdbc.Driver");	  Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/integrity","root","root");
+st=con.createStatement();
+String sql1="select max(id) from request";
+rs1=st.executeQuery(sql1);
+if(rs1.next())
+{
+	if(rs1.getInt(1)==0)
+	n=1;
+	else
+	n=rs1.getInt(1)+1;
+}
+      }catch (Exception e) {
+e.printStackTrace();
+out.print(e.getMessage());
+}
+%>
+<%
+  //String id = request.getParameter("id");
+ //String id=(String)session.getAttribute("id");
+  String fname=(String)session.getAttribute("fname");
+       System.out.println("filename :"+fname);  
+      String user=(String)session.getAttribute("user");
+       System.out.println(user);  
+       String status=(String)session.getAttribute("status");
+        System.out.println(status);  
+                   //String username=(String)session.getAttribute("uname");
+                     // System.out.println(username);  
+		 String me =(String)session.getAttribute("me");
+	  	 String id = request.getParameter("id");
+try
+{
+       Class.forName("com.mysql.jdbc.Driver");
+    Connection con 2= DriverManager.getConnection("jdbc:mysql://localhost:3306/integrity", "root", "root");
+           Statement st11 = con2.createStatement();
+            ResultSet rs = st11.executeQuery("select * from enduser where user='"+me+"'");
+            if(rs.next()){
+String sql="insert into request values('"+n+"','"+me+"','"+user+"','"+fname+"','"+status+"','Pending')";
+int j=st11.executeUpdate(sql);
+String sql1="insert into transaction values('"+me+"','"+fname+"','Request',now(),'"+status+"')";
+  int x=st11.executeUpdate(sql1);
+ response.sendRedirect("Search.jsp?msg=success");
+}
+else
+       {
+    response.sendRedirect("Search.jsp?msg=error");
+       }
+}catch(Exception e)
+{
+	System.out.println(e);
+} 
+%>
+
+//DOWNLOAD
+<%@page import="design.download"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+
+<%  
+	Statement st1 = null;
+	ResultSet rs1=null;
+	int n=0;
+	try{
+	Class.forName("com.mysql.jdbc.Driver");	 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/integrity","root","root");
+		st1=con.createStatement();
+		String sql1="select max(id) from attack";
+		
+		rs1=st1.executeQuery(sql1);
+		if(rs1.next())
+		{
+		if(rs1.getInt(1)==0)
+		n=1;
+		else
+		n=rs1.getInt(1)+1;
+		
+		}
+                             }catch (Exception e) {
+		e.printStackTrace();
+		out.print(e.getMessage());
+	}
+%>      
+<%
+String namee=request.getParameter("file");
+String skey=request.getParameter("key");
+String me =session.getAttribute("me").toString();
+//System.out.println(" user name"+ username);
+//System.out.println(" user password"+ password);
+Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/integrity","root","root");
+            Statement st = con.createStatement();
+            String Q = "select * from files where name= '"+namee+"'";                    
+                ResultSet rs = st.executeQuery(Q);          
+               if(rs.next()){                        
+         if((rs.getString("name").equals(namee))&&(rs.getString("skey").equals(skey))){
+                     session.setAttribute("ff", namee);
+                    response.sendRedirect("userdwn.jsp?ms= sucess..!");
+                    }
+                    else{
+                   Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/integrity", "root", "root");
+        Statement st2 = con.createStatement();
+         int i = st2.executeUpdate("insert into attack (id,filename,status,time)values('"+n+"','"+namee+"','attack',now())");
+              // String sql = "insert into hackers (user,filename)values('"+me+"',m'"+namee+"')";
+            if (i != 0) {
+int j = st2.executeUpdate("insert into transaction (user,filename,status,date)values('"+me+"','"+namee+"','Key Mismatch',now())");
+               response.sendRedirect("EndUserHome.jsp?msghack=hacker");  
+            }
+        }     }
+                    else{
+                      response.sendRedirect("EndUserHome.jsp?msgrrr= Error found..!");
+                         //out.println("<script>alert('wrong again')</script>");
+                    }
+            %>
