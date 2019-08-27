@@ -1,0 +1,252 @@
+<%@ page import="java.text.ParseException.*"%>
+<%@ page import="java.text.SimpleDateFormat,java.util.*,java.io.*,javax.servlet.*, javax.servlet.http.*" %>
+<%@ page import = "java.util.Date,java.text.SimpleDateFormat,java.text.ParseException"%>
+<%@ page import="java.sql.*,databaseconnection.*"%>
+  <% 
+	
+	 
+	Statement st = null;
+	ResultSet rs1=null;
+	int n=0;
+	try{
+		
+		Class.forName("com.mysql.jdbc.Driver");	
+	        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/integrity","root","root");
+		st=con.createStatement();
+		String sql1="select max(id) from client";
+		
+		rs1=st.executeQuery(sql1);
+		if(rs1.next())
+		{
+		if(rs1.getInt(1)==0)
+		n=1;
+		else
+		n=rs1.getInt(1)+1;
+		
+		}
+                             }catch (Exception e) {
+		e.printStackTrace();
+		out.print(e.getMessage());
+	}
+%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Public Cloud</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<style type="text/css">
+body,td,th {
+	font-family: "Comic Sans MS";
+	font-size: 16px;
+}
+</style>
+<script language="JavaScript">
+
+    
+
+
+    function validation()
+{
+
+               var us = document.f.user.value;
+                var pa = document.f.pass.value;
+                var ge=  document.f.gender.value;
+                var da = document.f.date.value;
+                var em = document.f.mail.value;
+                var mo = document.f.contactno.value;
+                var pl = document.f.location.value;
+               
+               
+               var phoneNo = document.getElementById('contactno');
+                
+                
+               if(us==0){
+                   alert('plz enter user name');
+                   document.f.user.focus();
+                   return false;
+               }if(pa==0){
+                   alert('plz enter password');
+                   document.f.pass.focus();
+                   return false;
+               } if(ge==0){
+                   alert('plz enter your gender');
+                   document.f.gender.focus();
+                   return false;
+               } if(da==0){
+                   alert('plz enter your date of birth');
+                   document.f.date.focus();
+                   return false;
+               } if(em==0){
+                   alert('plz enter your mailid');
+                   document.f.mail.focus();
+                   return false;
+               }  if(pl==0){
+                   alert('plz enter your location');
+                   document.f.location.focus();
+                   return false;
+               }
+                 if(mo==0){
+                   alert('plz enter user mobile no');
+                   document.f.contactno.focus();
+                   return false;
+               }   
+
+     var x = document.forms["f"]["mail"].value;
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length) {
+        alert("Not a valid e-mail address");
+        return false;
+    }
+    
+    if (phoneNo.value == "" || phoneNo.value == null) {
+            alert("Please enter your Mobile No.");
+            return false;
+        }
+        if (phoneNo.value.length < 10 || phoneNo.value.length > 10) {
+            alert("Mobile No. is not valid, Please Enter 10 Digit Mobile No.");
+            return false;
+        }
+}
+  
+                    
+                    
+                    
+        
+   
+ </script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+			  <div id="content">
+					<div class="post">
+					  <h2 align="center" class="title"><a href="#">SECURITY IMPLICATION OF PERMISSION USING ACCESS CONTROL SCHEME</a></h2>
+					  <p align="center">&nbsp;</p>
+					
+                      <div class="entry">
+                       <span class="date"><b><a href="#">CLIENT LOGIN:</a></b></span>
+                       <br />
+                       <form action="insertdata1.jsp" name="f" method="post" onsubmit="return validation();">                                                
+                       </br>
+								
+        <table width="337" align="left" cellpadding="5" cellspacing="10" >
+              
+              <tr> 
+                 <td width="137">User Id</td>
+                <td width="248"> <input type="text"  name="id"  class="b" value="<%=n%>" ></td>
+              </tr>
+             <tr> 
+                 <td width="137">User Name</td>
+                <td width="248"> <input type="text" name="user" class="b"></td>
+              </tr>
+              
+              <tr> 
+                <td>Password</td>
+                <td><input type="password" name="pass" class="b"></td>
+              </tr>
+              <tr> 
+                <td>Gender</td>
+                <td>  <input type="radio" name="gender" value= "Male" id="gender" >Male
+                      <input type="radio" name="gender" value="Female" id="gender">Female</td>
+              </tr>
+              <tr> 
+                <td>DOB</td>
+                <td><input type="date" name="date" class="b"></td>
+              </tr>
+              <tr> 
+                <td>Email ID</td>
+                <td><input type="text" name="mail" class="b"></td>
+              </tr>
+              <tr> 
+                <td>Location</td>
+                <td><input type="text" name="location" class="b"></td>
+              </tr>
+              <tr> 
+                <td>MobileNo</td>
+                <td><input type="text" name="contactno" id="contactno"class="b" onkeypress="return isNumber(event)"></td>
+              </tr>
+              <tr>
+                  <td></td>
+                  <td><input type="submit" name="registration" value="SignUp" style="font-family: Bookman Old Style;width: 70px;height: 25px;""/>
+          <input type="reset" name="cancel" style="font-family: Bookman Old Style;width: 70px;height: 25px;"/></td>
+       
+              
+              </tr>
+              
+             </table>
+              
+              <script type="text/javascript"> 
+               function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            alert("Please enter only Numbers.");
+            return false;
+        }
+
+        return true;
+    }
+    </script>
+</form>
+<img src="images/Register.png" height="296" style="position: absolute; top: 348px; left: 912px; width: 269px; height: 252px;">
+					  </div>
+			    </div>
+				</div>
+				<div align="justify">
+				  <!-- end #content -->
+			  </div>
+			  <div id="sidebar">
+					<div id="logo">
+						<h1 align="justify"><a href="#">Cloud Computing</a></h1>
+						<p align="justify"> <a href="http://www.freecsstemplates.org/"></a></p>
+					</div>
+			    <div id="menu">
+						<div align="justify">
+						  <ul>
+						    <li><a href="Home.jsp">Home</a></li>
+						    <li><a href="proxy.jsp">PROXY</a></li>
+						    <li><a href="#">Public Cloud Server</a></li>
+						    <li><a href="KGC.jsp">KEY MANAGEMENT</a><a href="Client.jsp">Client</a></li>
+						    <li><a href="EndUSer.jsp">End User</a></li>
+                             <li><a href="Attacker.jsp">Search Files</a></li>
+					      </ul>
+				  </div>
+			    </div>
+				  <div align="justify">
+				    <ul>
+				      <li> </li>
+			        </ul>
+			    </div>
+				  <ul>
+				    <li>
+				      <div style="clear: both;">&nbsp;</div>
+					  </li>
+					  <li>
+<!--						  <h2 align="justify">Working:</h2>
+                          <p align="justify">CLOUD COMPUTING is a kind of internet based computing that provides shared processing resources and data to computers and other devices on demand. It is a model for enabling ubiquitous , on demand access to shared pool of configurable computing resources which can be rapidly provisioned and released with minimal management effort In this context, this work presents AUTOELASTIC, a PaaS-level elasticity model for HPC in the cloud. </p>-->
+					  </li>
+					  <li>
+						  <h2 align="justify"><!-- end #sidebar -->				</h2>
+					  </li>
+				</ul>
+				</div>
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p>.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
