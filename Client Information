@@ -1,0 +1,167 @@
+<%@page import="com.oreilly.servlet.*,java.sql.*,java.lang.*,databaseconnection.*,java.text.SimpleDateFormat,java.util.*,java.io.*,javax.servlet.*, javax.servlet.http.*"  errorPage="Error.jsp"%>
+<%@ page import="java.sql.*" import="databaseconnection.*"%>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Public Cloud</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<style type="text/css">
+body,td,th {
+	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+	font-size: 17px;
+}
+</style>
+
+  
+</head>
+<body>
+<div id="wrapper">
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+			  <div id="content">
+					<div class="post">
+					  <h2 align="center" class="title"><a href="#">SECURITY IMPLICATION OF PERMISSION USING ACCESS CONTROL SCHEME</a></h2>
+					  <p align="center">--------------------------x-x-x-x-x-x-x-x-x-x-x-x-x----------------------------</p>
+					  <p align="center">&nbsp;						</p>
+					
+                      <div class="entry">
+                       <span class="date"><b><a href="#">VIEW AND AUTHENTICATE CLIENT:</a></b></span>
+                       <br />
+                       <br />
+                      
+					   
+                        
+                        <p align="justify">  <table width="500" height="91" border=1 align="center">
+            <tr>
+             
+                <td width="102" height="37" bgcolor="#B3FE51" style="color:#0B09E4"><div align="center" class="style6"><strong>Id</strong></div></td>
+                <td width="109" bgcolor="#B3FE51" style="color:#0B09E4"><div align="center" class="style6"><strong>User</strong></div></td>
+                <td width="124" bgcolor="#B3FE51" style="color:#0B09E4"><div align="center" class="style6"><strong>Status</strong></div></td>
+                <td width="124" bgcolor="#B3FE51" style="color:#0B09E4"><div align="center" class="style6"><strong>View</strong></div></td>
+             
+            </tr>
+            <%
+          String s1="",s2="",s3="",s4="",s5="",s6="",s7="",s8="",s9,s10,s11,s12,s13="";
+      	int i=0,j=0;
+      String ii="";
+          try{
+          
+          //Statement st=connection.createStatement();
+          Connection con = databasecon.getconnection();
+Statement st = con.createStatement();
+          
+          String sql="SELECT * FROM Client";
+          ResultSet rs=st.executeQuery(sql);
+          while(rs.next())
+          {
+        	ii=rs.getString("id");
+      		s2=rs.getString("user");
+      		s3=rs.getString("status");
+      		//s4=rs.getString("user");
+      		//s5=rs.getString("addr");
+      		//s6=rs.getString("dob");
+      		//s7=rs.getString("location");
+      		//s9=rs.getString("imagess");
+      		//s10=rs.getString("status");
+      		
+      		i=Integer.parseInt(ii);
+      %>
+            <tr>
+              
+             <td><div align="center" class="style7"><%=i%></div></td>
+                <td><div align="center" class="style7"><%=s2%></div></td>
+             
+              
+              
+              <%if(s3.equalsIgnoreCase("Waiting")){
+        	 %>
+              <td><div align="center" class="style7"><a href="ChangeStatus.jsp?id=<%=i%>&st=<%=s3%>"><span class="blueText">Waiting</span></a></div></td>
+              <%
+             }
+         if(s3.equalsIgnoreCase("Authorized"))
+         {
+        	 %>
+              <td><div align="center" class="style7"><a href="ChangeStatus.jsp?id=<%=i%>&st=<%=s3%>"><span class="blueText">Authorized</span></a></div></td>
+              <%
+        	 
+         }
+         
+         %>
+               <td><div align="center"><a href="ViewClient.jsp?id=<%=i%>"><strong>View</strong></a></div></td>
+            </tr>
+            <%
+
+      	 
+      	   }
+                 //connection.close();
+                }
+               
+                catch(Exception e)
+                {
+                  out.println(e.getMessage());
+                }
+      %>
+          </table>
+            
+                        </p>
+					    <p align="justify" class="links">&nbsp;</p>
+					  </div>
+			    </div>
+				</div>
+				<div align="justify">
+				  <!-- end #content -->
+			  </div>
+			  <div id="sidebar">
+					<div id="logo">
+						<h1 align="justify"><a href="#">Proxy Home</a></h1>
+						<p align="justify"> <a href="http://www.freecsstemplates.org/"></a></p>
+					</div>
+			    <div id="menu">
+						<div align="justify">
+						  <ul>
+						    <li><a href="proxyhome.jsp">Home</a></li>
+						    <li  class="current_page_item"><a href="ClientInfo.jsp">Client Information</a></li>
+						    <li><a href="EndUserInfo.jsp">End User Information</a></li>
+						    <li><a href="AuthorizeFiles.jsp">Authorize file upload</a></li>
+						    <li><a href="Transaction.jsp">View Transaction</a></li>
+						    <li><a href="Home.jsp">Logout</a></li>
+					      </ul>
+				  </div>
+			    </div>
+				  <div align="justify">
+				    <ul>
+				      <li> </li>
+			        </ul>
+			    </div>
+				  <ul>
+				    <li>
+				      <div style="clear: both;">&nbsp;</div>
+					  </li>
+					  <li>
+<!--						  <h2 align="justify">Working:</h2>
+                          <p align="justify">CLOUD COMPUTING is a kind of internet based computing that provides shared processing resources and data to computers and other devices on demand. It is a model for enabling ubiquitous , on demand access to shared pool of configurable computing resources which can be rapidly provisioned and released with minimal management effort In this context, this work presents AUTOELASTIC, a PaaS-level elasticity model for HPC in the cloud. </p>
+                          <h2 align="justify"> end #sidebar 				</h2>-->
+					  </li>
+					  <li>
+					  </li>
+				</ul>
+				</div>
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p>.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
