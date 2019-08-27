@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Public Cloud</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<style type="text/css">
+body,td,th {
+	font-family: "Book Antiqua";
+	font-size: 18px;
+}
+</style>
+</head>
+<body>
+    
+<div id="wrapper">
+<%
+ String message=request.getParameter("msg");
+         
+			 if(message!=null && message.equalsIgnoreCase("NotActivated"))
+	
+             {
+				 out.println("<script>alert('Client Not Activated..!')</script>");
+            }   
+			
+			if(message!=null && message.equalsIgnoreCase("error"))
+	
+             {
+				 out.println("<script>alert('Login Error..!')</script>");
+            } 
+			  %>
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+			  <div id="content">
+					<div class="post">
+					  <h2 align="center" class="title"><a href="#">SECURITY IMPLICATION OF PERMISSION USING ACCESS CONTROL SCHEME</a></h2>
+					  <p align="center">---------------------------x-x-x-x-x-x-x-x-x-x-x-x-x----------------------</p>
+					  <p align="center">&nbsp;						</p>
+					
+                      <div class="entry">
+                       <span class="date" style="font-family:Arabic Typesetting; font-size:28px"><b><a href="#">CLINET LOGIN:</a></b></span>
+                       <br />
+                      
+                      
+					    <p align="justify">
+                         <form name="s" action="ClientAction.jsp" method="post" onSubmit="return validation();">                            
+                                         <table width="77%">
+                                            
+                        
+                                            <tr style="height: 40px;"><td width="30%"><strong>User Name</strong></td>
+                                              <td width="70%">
+                                                <span style="font-size: 15px">
+                                                <input type="text" size="20" style="height: 20px;" id="username" name="user"/>
+                                              </span></td>
+                                            </tr>
+                                            <tr style="height: 40px;"><td><strong>Password</strong></td>
+                                              <td>
+                                                <span style="font-size: 15px">
+                                                <input type="password" size="20" style="height: 20px;" id="password" name="pass"/>
+                                              </span></td>
+                                            </tr>                                
+
+                                            <tr style="height: 70px;">
+                                                <td></td><td>
+                                                  <span style="font-size: 18px">
+                                                  <input type="submit" value="Login" style="font-family: Bookman Old Style;height: 25px;width: 70px;"/>
+                                                   <input type="reset" name="cancel" style="font-family: Bookman Old Style;width: 70px;height: 25px;"/>
+                                                  </span></td>
+                                            </tr>
+                                               
+
+                                        </table>
+                                    </form>
+                                 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New User? <a href="ClientReg.jsp"><b>CLICK HERE</b></a></p>
+                        </p>
+							<p align="justify" class="links">&nbsp;</p>
+					  </div>
+			    </div>
+				</div>
+				<div align="justify">
+				  <!-- end #content -->
+			  </div>
+			  <div id="sidebar">
+					<div id="logo">
+						<h1 align="justify"><a href="#">Cloud Computing</a></h1>
+						<p align="justify"> <a href="#"></a></p>
+					</div>
+			    <div id="menu">
+						<div align="justify">
+						  <ul>
+						    <li><a href="Home.jsp">Home</a></li>
+						    <li><a href="proxy.jsp">PROXY</a></li>
+						    <li><a href="PCS.jsp">Public Cloud Server</a></li>
+						    <li><a href="KGC.jsp">KEY MANAGEMENT</a></li>
+						    <li class="current_page_item"><a href="Client.jsp">Client</a></li>
+						    <li><a href="EndUSer.jsp">End User</a></li>
+                             <li><a href="Attacker.jsp">Search Files</a></li>
+					      </ul>
+				  </div>
+			    </div>
+				  <div align="justify">
+				    <ul>
+				      <li> </li>
+			        </ul>
+			    </div>
+				  <ul>
+				    <li>
+				      <div style="clear: both;">&nbsp;</div>
+					  </li>
+					  <li>
+<!--						  <h2 align="justify">Working:</h2>-->
+<!--                          <p align="justify">CLOUD COMPUTING is a kind of internet based computing that provides shared processing resources and data to computers and other devices on demand. It is a model for enabling ubiquitous , on demand access to shared pool of configurable computing resources which can be rapidly provisioned and released with minimal management effort In this context, this work presents AUTOELASTIC, a PaaS-level elasticity model for HPC in the cloud. </p>-->
+					  </li>
+					  <li>
+						  <h2 align="justify"><!-- end #sidebar -->				</h2>
+					  </li>
+				</ul>
+				</div>
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p>.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
+
