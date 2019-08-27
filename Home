@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Public Cloud</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<style type="text/css">
+body,td,th {
+	font-family: "Book Antiqua";
+	font-size: 16px;
+}
+</style>
+</head>
+<body>
+<div id="wrapper">
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+			  <div id="content">
+					<div class="post">
+					  <h2 align="center" class="title"><a href="#">SECURITY IMPLICATION OF PERMISSION USING ACCESS CONTROL SCHEME</a></h2>
+					  <p align="center"><span class="date"><b></b></span></p>
+					  <div class="entry"><span class="date"><b><h3>&nbsp;</h3>
+				     <center> <h3><a >Abstract</a></h3></center>
+					  </b></span><br />                    
+					    <p align="center" style="font-size:17px">With the rapid development of the computer technology, cloud-based services have become a hot topic. Cloudbased services not only provide users with convenience, but also bring many security issues. 
+Therefore, the study of access control scheme to protect users' privacy in cloud environment is of great significance.We propose a novel access control system called PSACS, which is privilege separation based on privacy protection. 
+The system uses Key-Aggregate Encryption (KAE) scheme and Hierarchy Attribute-based Encryption (HABE) scheme to implement read access control scheme in the PSD and PUD respectively. The KAE scheme greatly improves access efficiency and the HABE scheme largely reduces the task of a single authority and protects the privacy of user data.  Compared with the MAH-ABE scheme which does not refer to the write access control, 
+we exploit an Improved Attribute-based Signature (IABS) scheme to enforce write access control in the PSD. In this way, the user can pass the cloud server’s signature verification without disclosing the identity, and successfully modify the file. 
+We provide a thorough analysis of security and complexity of our proposed PS-ACS scheme. The functionality and simulation results provide data security in acceptable performance impact, and prove the feasibility of the scheme.
+ <br />					    </p>
+							<p align="justify" class="links">&nbsp;</p>
+					  </div>
+			    </div>
+				</div>
+				<div align="justify">
+				  <!-- end #content -->
+			  </div>
+			  <div id="sidebar">
+					<div id="logo">
+						<h1 align="justify"><a href="#">Cloud Computing</a></h1>
+						<p align="justify"> <a href="http://www.freecsstemplates.org/"></a></p>
+					</div>
+			    <div id="menu">
+						<div align="justify">
+						  <ul>
+						    <li class="current_page_item"><a href="Home.jsp">Home</a></li>
+						    <li><a href="proxy.jsp">PROXY</a></li>
+						    <li><a href="PCS.jsp">Public Cloud Server</a></li>
+						    <li><a href="KGC.jsp">KEY MANAGEMENT</a></li>
+						    <li><a href="Client.jsp">Client</a></li>
+						    <li><a href="EndUSer.jsp">End User</a></li>
+                                                     <li><a href="Attacker.jsp">Search Files</a></li>
+					      </ul>
+				  </div>
+			    </div>
+				  <div align="justify">
+				    <ul>
+				      <li> </li>
+			        </ul>
+			    </div>
+				  <ul>
+				    <li>
+				      <div style="clear: both;">&nbsp;</div>
+<!--					  </li>
+					  <li>
+						  <h2 align="justify">Working:</h2>
+						  <p align="justify">CLOUD COMPUTING is a kind of internet based computing that provides shared processing resources and data to computers and other devices on demand. It is a model for enabling ubiquitous , on demand access to shared pool of configurable computing resources which can be rapidly provisioned and released with minimal management effort In this context, this work presents AUTOELASTIC, a PaaS-level elasticity model for HPC in the cloud. <br />
+						  </p>
+					  </li>
+					  <li>
+						  <h2 align="justify"> end #sidebar 				</h2>
+					  </li>-->
+				</ul>
+				</div>
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p>.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
