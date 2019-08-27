@@ -1,0 +1,167 @@
+<%@ page import="java.sql.*" import="databaseconnection.*"%>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Public Cloud</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<style type="text/css">
+body,td,th {
+	font-family: "Book Antiqua";
+	font-size: 16px;
+}
+</style>
+</head>
+<body>
+<div id="wrapper">
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+			  <div id="content">
+					<div class="post">
+					  <h2 align="center" class="title"><a href="#">SECURITY IMPLICATION OF PERMISSION USING ACCESS CONTROL SCHEME</a></h2>
+					  <p align="center">-----------------------------x-x-x-x-x-x-x-x-x-x-x-x-x---------------------------</p>
+					  <p align="center">&nbsp;						</p>
+					
+                      <div class="entry">
+                       <span class="date"><b><a href="#">VIEW FILES UPLOADED BY CLIENT:</a></b></span>
+                       <br />
+                       <br />
+                      
+					    <p align="justify">
+                        
+                        <table width="530" height="94" border=1 align="center">
+	  <tr align="center">
+                           
+       
+              <th bgcolor="#B3FE51" height="40" width="50">User</th>
+	     <th  bgcolor="#B3FE51">File </th>
+          <th bgcolor="#B3FE51" width="280">Encryption</th>
+           <th bgcolor="#B3FE51">Secret Key</th>
+           
+             
+           
+              
+               
+          
+          
+	  </tr>
+
+<%
+
+String name=null,emailid=null,dob=null,address=null,mobileno=null,gender=null, blood=null;
+String qu=null,sp=null,gr=null,acc=null,pid=null;
+try
+{
+    
+Connection con = databasecon.getconnection();
+Statement st = con.createStatement();
+String sss = "select * from files";
+ResultSet rs=st.executeQuery(sss);
+while(rs.next())
+{
+        name=rs.getString(3);
+        emailid=rs.getString(2);
+       
+                mobileno=rs.getString(1);
+                
+	 qu=rs.getString(5);
+         // sp=rs.getString(5);
+          // gr=rs.getString(10);
+           // acc=rs.getString(13);
+            
+        // pid=rs.getString(11);
+                          
+%>
+ 
+<tr align="center">
+          
+	  <td><%=name%></td>
+	  <td><%=emailid%></td>
+	 
+	  <td><%=mobileno%></td>
+      <td><%=qu%></td>
+          
+	  
+          
+ 
+	  </tr>
+ </form>
+	  <%
+}
+}
+catch(Exception e)
+	{
+	System.out.println(e);
+	}
+
+%>
+
+</table>
+                        
+                        </p>
+                   
+                        
+                        
+                        
+                        </p>
+						<p align="justify" class="links">&nbsp;</p>
+					  </div>
+			    </div>
+				</div>
+				<div align="justify">
+				  <!-- end #content -->
+			  </div>
+			  <div id="sidebar">
+					<div id="logo">
+						<h1 align="justify"><a href="#">Cloud Home </a></h1>
+						<p align="justify"> <a href="http://www.freecsstemplates.org/"></a></p>
+					</div>
+			    <div id="menu">
+						<div align="justify">
+						  <ul>
+						    <li><a href="pcshome.jsp">Home</a></li>
+						    <li class="current_page_item"><a href="pcsfileview.jsp">View all Cloud Files</a></li>
+						    <li><a href="TransCloud.jsp">View all Transaction</a></li>
+						    <li><a href="fileatt.jsp">View all Attacks</a></li>
+						    <li><a href="Viewres.jsp">View Key authority response</a></li>
+						    <li><a href="Home.jsp">Logout</a></li>
+					      </ul>
+				  </div>
+			    </div>
+				  <div align="justify">
+				    <ul>
+				      <li> </li>
+			        </ul>
+			    </div>
+				  <ul>
+				    <li>
+				      <div style="clear: both;">&nbsp;</div>
+					  </li>
+					  <li>
+<!--						  <h2 align="justify">Working:</h2>
+                          <p align="justify">CLOUD COMPUTING is a kind of internet based computing that provides shared processing resources and data to computers and other devices on demand. It is a model for enabling ubiquitous , on demand access to shared pool of configurable computing resources which can be rapidly provisioned and released with minimal management effort In this context, this work presents AUTOELASTIC, a PaaS-level elasticity model for HPC in the cloud. </p>
+                          <h2 align="justify"> end #sidebar 				</h2>-->
+					  </li>
+					  <li>
+					  </li>
+				</ul>
+				</div>
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p>.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
+
